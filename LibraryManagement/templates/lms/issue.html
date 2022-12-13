@@ -1,0 +1,78 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>issue book</title>
+
+</head>
+
+<body>
+    <div class="container border-5 vh-100">
+        <div class="row justify-content-center align-items-center me-4 vh-100">
+            <div class="col-4">
+                <div class="row d-flex flex-column justify-content-center align-items-center">
+                    <div class="col text-center text-white my-3">
+                        <h1>Issue Book</h1>
+                        <a href="/index" class="btn btn-lg btn-secondary border-2 border border-dark text-light">
+                            Home</a>
+                    </div>
+                    <div class=" col border border-3 mt-2 rounded form_text_shadow add_form text-white fw-bolder p-5">
+                        <!-- form div start -->
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="mb-2">
+                                <label for="b_id">Book Id</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control bg-light" id="b_id"
+                                        placeholder="enter book id" name="b_id">
+                                </div>
+
+                                <label for="u_id">User Id</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control bg-light" id="u_id"
+                                        placeholder="enter book id" name="u_id">
+                                </div>
+
+                                <label for="doi">Date of Issue</label>
+                                <div class="form-group">
+                                    <input type="date" class="form-control bg-light" id="doi"
+                                        placeholder="enter book id" name="doi">
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-3">
+                                <button type="submit" class="bg-dark btn btn-outline-light btn-lg">Issue</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--form div end-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>

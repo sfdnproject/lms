@@ -1,0 +1,57 @@
+body {
+
+    background: url('../images/ryunosuke.jpg') no-repeat center fixed;
+
+    background-size: cover;
+    /* background-color:black; */
+}
+
+/* utility class  */
+
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 2px 1px #000000;
+}
+
+/* ..............add page ...................... */
+.add_form {
+    /* Fallback color */
+    background-color: rgb(0, 0, 0);
+    /* Black w/opacity/see-through */
+    background-color: rgba(0, 0, 0, 0.4);
+
+    /* box-shadow: 0 4px 8px 0 rgb(40, 218, 13), 0 6px 20px 0 rgb(77, 14, 223); */
+
+
+}
+
+
+.form_text_shadow{
+    text-shadow: 2px 2px 3px #000000;
+}
+
+.add-dropend .ul .li .a{
+    text-shadow: none;
+    
+}
+
+
+
+/* ......viewbooks page...... */
+
+
+.table_text_shadow{
+    text-shadow: 2px 2px 3px #000000;
+}
+
+.table_bg_color{
+    /* Fallback color */
+    background-color: rgb(0, 0, 0);
+    /* Black w/opacity/see-through */
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+/* ......index page...... */
+
