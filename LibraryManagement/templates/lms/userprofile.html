@@ -5,7 +5,181 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="wid<!doctype html>
+  {% load static %}
+  <html lang="en">
+  
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+    <title>your profile</title>
+  </head>
+  
+  <body>
+  
+    <div class="container">
+      <div class="row"> <!--first row starts-->
+        <div class="col-12 d-flex justify-content-center text-white fw-bolder mt-4 mb-2">
+          <!-- main heading -->
+          <img src=" {% static 'images/icon.png' %} " width="55px" alt="book icon">
+          <h1 class="mx-3">Welcome To City Library</h1>
+          <img src=" {% static 'images/icon.png' %} " width="55px" alt="book icon">
+        </div> <!-- main heading end -->
+      </div> <!--first row ends-->
+  
+      <div class="row mb-3 mt-3 d-flex flex-column align-items-center"> <!--second row starts-->
+          <!--login logout buttons starts-->
+          <div class="col-2 mx-auto mb-3 d-grid">
+            <a href="/logout" class="btn btn-danger btn-md">Logout</a>
+          </div>
+  
+          <div class="col-2 mx-auto d-grid">
+            <a href="/lms/ourbookcollection" class="btn btn-primary btn-md fs-6 text-center mb-2">Our Books Collections </a>
+          </div>
+  
+          
+          <div class="col-4 mt-2">
+            {% for message in messages %}
+                  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                      {{message}}.
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  {% endfor %}
+          </div>
+        <!--login logout buttons ends-->
+      </div> <!--second row ends-->
+       
+      <div class="row d-flex justify-content-between my-5 "> <!-- third row starts-->
+  
+        <div class="col-12 col-md-3 h-25">
+          <table class="table table-sm bg-secondary text-light border border-3  border-light">
+            <tbody>
+              <tr>
+                <th scope="row">FirstName :</th>
+                <td class="text-warning">{{fname}}</td>
+              </tr>
+              <tr>
+                <th scope="row">LastName :</th>
+                <td class="text-warning">{{lname}}</td>
+              </tr>
+              <tr>
+                <th scope="row">UserName :</th>
+                <td class="text-warning">{{username}}</td>
+              </tr>
+              <tr>
+                <th scope="row">UserId :</th>
+                <td class="text-warning">{{uid}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Email :</th>
+                <td class="text-warning">{{email}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="col-12 col-md-6 ">
+          <div class="row mb-1 d-flex justify-content-center">
+            <div class="col-12 co-md-12 text-center bg-light w-50 border rounded">
+              <h3>Your Books Records</h3>
+            </div>
+            
+            <!--<div class="col-2 my-auto">
+              <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary btn-md dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Filter
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <h6 class="dropdown-header">By Book</h6>
+                  </li>
+                  <li><a class="dropdown-item" href="/lms/ltoh">A to Z</a></li>
+                  <li><a class="dropdown-item" href="/lms/htol">Z to A</a></li>
+                  <li>
+                    <h6 class="dropdown-header">By Author</h6>
+                  </li>
+                  <li><a class="dropdown-item" href="/lms/atoz">A to Z</a></li>
+                  <li><a class="dropdown-item" href="/lms/ztoa">Z to A</a></li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="col-2 my-auto">
+              <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary btn-md dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Category
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/lms/allBook">All Books</a></li>
+                  <li><a class="dropdown-item" href="/lms/nonFiction">Non-Fiction</a></li>
+                  <li><a class="dropdown-item" href="/lms/edited">Edited</a></li>
+                  <li><a class="dropdown-item" href="/lms/reference">Reference</a></li>
+                  <li><a class="dropdown-item" href="/lms/fiction">Fiction</a></li>
+                </ul>
+              </div>
+            </div>-->
+          </div>
+  
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-hover text-center  border border-white table_bg_color">
+                <thead class="border-bottom border-light text-white table_text_shadow fw-bolder border-2">
+                  <tr>
+                    <th scope="col">Book-ID</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Book Type</th>
+                    <th scope="col">Date of Issue</th>
+                    <th scope="col">Date of Return</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for d in data %}
+                  <tr class="text-light">
+                    <th scope="row"> {{d.bookId}} </th>
+                    <td>{{d.book_name}}</td>
+                    <td>{{d.author_name}}</td>
+                    <td>{{d.type_of_book}}</td>
+                    <td>{{d.date_of_issue}}</td>
+                    <td>{{d.date_of_return}}</td>
+                    <td>{{d.status}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+  
+        
+  
+      </div> <!-- third row ends-->
+        
+    </div>
+  
+  
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+  
+  </body>
+  
+  </html>th=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
